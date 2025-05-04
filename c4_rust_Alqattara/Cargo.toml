@@ -1,0 +1,33 @@
+[package]
+name = "c4_rust"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A Rust implementation of the C4 self-hosting C compiler with floating-point support"
+
+[lib]
+name = "c4_rust"
+path = "src/lib.rs"
+
+[[bin]]
+name = "c4_rust"
+path = "src/main.rs"
+
+[dependencies]
+thiserror = "2.0.12"
+log = "0.4"
+env_logger = "0.11.8"
+
+[dev-dependencies]
+test-case = "3.3"
+serial_test = "3.2.0"
+
+[profile.test]
+opt-level = 2
+debug = true
+debug-assertions = true
+
+# Specify test location explicitly
+[[test]]
+name = "integration"
+path = "tests/c4_tests.rs"
